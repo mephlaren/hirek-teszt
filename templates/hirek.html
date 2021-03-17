@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+    {% block content %}
+        <h1>{{hir.cim}}</h1><br>
+        <p>{{hir.szerzo}}</p><br>
+        <p>{{hir.dt}}</p><br><br><br>
+
+        <h3>{{szoveg | safe}}</h3>
+
+    vissza a <a href="/blog">blogra</a> hírekhez.
+    {% endblock content %}
