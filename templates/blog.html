@@ -3,15 +3,19 @@
 
 {% block content %}
     <br>Hírek:
-
-    {% for hir in hirek%}
-    <h1><a href="hirek/{{hir.id}}">{{hir.cim}}</a></h1>
-            {% if hir.dt == today %}
-                <h3>(friss){{hir.dt}}</h3>
-            {% else %}
-                <h3>{{hir.dt}}</h3>
-            {% endif %}
-         <p style="padding-left:5px;">{{hir.szerzo}}</p>
-
-    {% endfor %}
+    <div class="hir-wrapper center">
+        {% for hir in hirek%}
+            <div class="hir-card">
+                {% if hir.dt == today %}
+                    <p class="hir-cim m-0"><a href="hirek/{{hir.id}}">{{hir.cim}}</a></p>
+                    <p class="hir-friss hir-dt">{{hir.dt}}</p>
+                {% else %}
+                    <p class="hir-cim m-0"><a href="hirek/{{hir.id}}">{{hir.cim}}</a></p>
+                    <p class="hir-dt">{{hir.dt}}</p>
+                {% endif %}
+                <p class="hir-szerzo">írta: {{hir.nev}}</p>
+                <p class="hir-szerzo-desc">Az íróról: {{hir.leiras}}</p>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}
